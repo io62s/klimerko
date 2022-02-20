@@ -36,7 +36,7 @@ export default async function appData() {
           markerColor = "#ffff00";
         } else if (airQ.state?.value === "Polluted") {
           markerColor = "#9370db";
-        } else if (airQ.state?.value === "Very polluted") {
+        } else if (airQ.state?.value === "Very Polluted") {
           markerColor = "#ff0000";
         } else {
           markerColor = "#777777";
