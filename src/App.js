@@ -12,6 +12,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Vazduh Gradjanima</h1>
       <Map airData={airData} />
     </div>
   );
