@@ -9,7 +9,7 @@ import {
 function Map(props) {
   const [, setMapRef] = useState(null);
   const center = { lat: 44.8125, lng: 20.4612 };
-  const zoom = 13;
+  const zoom = 12;
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [markerMap, setMarkerMap] = useState({});
   const [infoOpen, setInfoOpen] = useState(false);
