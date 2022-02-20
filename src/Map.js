@@ -7,7 +7,7 @@ import {
 } from "@react-google-maps/api";
 
 function Map(props) {
-  const [mapRef, setMapRef] = useState(null);
+  const [, setMapRef] = useState(null);
   const center = { lat: 44.8125, lng: 20.4612 };
   const zoom = 13;
   const [selectedPlace, setSelectedPlace] = useState(null);
