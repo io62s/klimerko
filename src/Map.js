@@ -8,7 +8,7 @@ import {
 
 function Map(props) {
   const [mapRef, setMapRef] = useState(null);
-  const center = { lat: 44.799378, lng: 20.455177 };
+  const center = { lat: 44.8125, lng: 20.4612 };
   const zoom = 13;
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [markerMap, setMarkerMap] = useState({});
@@ -103,7 +103,7 @@ function Map(props) {
     );
   };
 
-  return isLoaded ? renderMap() : null;
+  return isLoaded ? renderMap() : "Loading Map";
 }
 
 export default Map;

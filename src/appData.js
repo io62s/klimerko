@@ -50,7 +50,6 @@ export default async function appData() {
           lat: loc ? loc.state?.value.latitude : null,
           lng: loc ? loc.state?.value.longitude : null,
         },
-
         markerColor,
       };
     });
