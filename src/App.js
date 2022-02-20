@@ -6,9 +6,9 @@ import Map from "../Map";
 function App() {
   const [airData, setAirData] = useState([]);
 
-  // useEffect(() => {
-  //   appData().then((data) => setAirData(data));
-  // }, []);
+  useEffect(() => {
+    appData().then((data) => setAirData(data));
+  }, []);
 
   return (
     <div className="App">
