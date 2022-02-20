@@ -45,7 +45,7 @@ export default async function appData() {
 
       return {
         id: airQ ? airQ.deviceId : uuidv4(),
-        airQt: airQ ? airQ.state?.value : null,
+        airQt: airQ ? airQ.state?.value : "no data",
         pos: {
           lat: loc ? loc.state?.value.latitude : null,
           lng: loc ? loc.state?.value.longitude : null,
