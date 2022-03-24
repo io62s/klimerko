@@ -15,11 +15,7 @@ function Map(props) {
   const [infoOpen, setInfoOpen] = useState(false);
 
   const { isLoaded } = useLoadScript({
-<<<<<<< HEAD
     googleMapsApiKey: "AIzaSyC_2TGpK0fBp_fZQgU9b5gmmmXsI3vABjA",
-=======
-    googleMapsApiKey: "",
->>>>>>> a9d7dced6a4c17be96152a65b8030748c443bf94
   });
 
   const loadHandler = (map) => {
