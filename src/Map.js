@@ -15,7 +15,7 @@ function Map(props) {
   const [infoOpen, setInfoOpen] = useState(false);
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyCz3ZsXnGGp9uQnPuIrFt9aXGpDOv_Gxeo",
+    googleMapsApiKey: "AIzaSyC_2TGpK0fBp_fZQgU9b5gmmmXsI3vABjA",
   });
 
   const loadHandler = (map) => {
@@ -83,6 +83,8 @@ function Map(props) {
             <div>
               <h2>Air quality</h2>
               <h4>{selectedPlace.airQt}</h4>
+              <p>lat:{selectedPlace.pos.lat}</p>
+              <p>lng:{selectedPlace.pos.lng}</p>
             </div>
           </InfoWindow>
         )}

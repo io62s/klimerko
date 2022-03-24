@@ -11,6 +11,7 @@ export default async function appData() {
   let assets;
   let air;
   let markerColor;
+  let pollution = [];
   try {
     const getData = await axios.get(
       `https://api.allthingstalk.io/ground/${grndID}/devices?includeAssets=true`,
@@ -18,7 +19,6 @@ export default async function appData() {
     );
 
     const items = await getData.data.items;
-
     assets = items.map((item) => {
       return item.assets;
     });
@@ -26,6 +26,9 @@ export default async function appData() {
     air = assets.map((asset) => {
       let airQ = asset.find((a) => a.name === "air-quality");
       let loc = asset.find((a) => a.name === "location");
+      let pm2_5 = asset.find((a) => a.name === "pm2-5");
+      let pm1 = asset.find((a) => a.name === "pm1");
+      let pm10 = asset.find((a) => a.name === "pm10");
 
       if (airQ) {
         if (airQ.state?.value === "Excellent") {
@@ -45,6 +48,12 @@ export default async function appData() {
         }
       }
 
+      pollution = [
+        pm2_5 ? pm2_5.state?.value : 0,
+        pm1 ? pm1.state?.value : 0,
+        pm10 ? pm10.state?.value : 0,
+      ].reduce((tot, num) => tot + num);
+
       return {
         id: airQ ? airQ.deviceId : uuidv4(),
         airQt: airQ ? airQ.state?.value : "no data",
@@ -52,14 +61,12 @@ export default async function appData() {
           lat: loc ? loc.state?.value.latitude : null,
           lng: loc ? loc.state?.value.longitude : null,
         },
+        pollution,
         markerColor,
       };
     });
   } catch (error) {
     console.log(error);
   }
-
-  //console.log(air);
-
   return air;
 }
