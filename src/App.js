@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import appData from "./appData";
 import "./App.css";
 import Map from "./Map";
+import Polluted from "./Polluted";
 
 function App() {
   const [airData, setAirData] = useState([]);
@@ -22,11 +23,7 @@ function App() {
   return (
     <div className="App">
       <h1>Vazduh Gradjanima</h1>
-      <h3>
-        The most polluted air on location - lat:{" "}
-        {mostPollutedAir && mostPollutedAir.pos.lat} lng:{" "}
-        {mostPollutedAir && mostPollutedAir.pos.lng}
-      </h3>
+      {mostPollutedAir && <Polluted air={mostPollutedAir} />}
       <Map airData={airData} />
     </div>
   );
