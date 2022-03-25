@@ -13,9 +13,10 @@ function App() {
       setAirData(data);
 
       let pollutedAirData = await data;
-      let sortedAirData = pollutedAirData.sort(
-        (a, b) => b.pollution - a.pollution
-      );
+      let sortedAirData = pollutedAirData
+        .filter((data) => data.airQt !== undefined)
+        .sort((a, b) => b.pollution - a.pollution);
+      console.log(sortedAirData);
       return setMostPollutedAir(sortedAirData[0]);
     });
   }, []);
