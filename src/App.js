@@ -9,11 +9,10 @@ function App() {
   const [mostPollutedAir, setMostPollutedAir] = useState(null);
 
   useEffect(() => {
-    appData().then(async (data) => {
+    appData().then((data) => {
       setAirData(data);
 
-      let pollutedAirData = await data;
-      let sortedAirData = pollutedAirData
+      let sortedAirData = data
         .filter((data) => data.airQt !== undefined)
         .sort((a, b) => b.pollution - a.pollution);
 
